@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserInterface from '../components/pages/UserInterface';
+import Response from '../components/pages/Response.jsx';
 import fetchAPI from '../services/fetchAPI';
 import styles from './styles/Home.css';
 
@@ -8,33 +9,29 @@ export default class Home extends Component {
     url: '',
     method: '',
     JSON: '',
-    response: '',
+    response: [],
   };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
-
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleFetch();
   };
-
   handleFetch = () => {
     const { url, method, JSON } = this.state;
 
-    fetchAPI(url, method, JSON).then(
-      (res) => this.setState({ response: res }),
-      () => {
-        console.log(this.state.response);
-      }
+    fetchAPI(url, method, JSON).then((response) =>
+      this.setState({
+        response,
+      })
     );
   };
 
   render() {
     const { handleChange, handleSubmit } = this;
-    const { results, method, JSON, response } = this.state;
-    console.log(response);
+    const { results, method, response } = this.state;
     return (
       <div className={styles.Home}>
         <UserInterface
@@ -42,9 +39,8 @@ export default class Home extends Component {
           handleSubmit={handleSubmit}
           results={results}
           method={method}
-          JSON={JSON}
-          response={response}
         />
+        <Response response={response} />
       </div>
     );
   }
