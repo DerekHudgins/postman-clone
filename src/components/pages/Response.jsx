@@ -5,21 +5,14 @@ import styles from './styles/Response.css';
 
 const Response = ({ response }) => {
   return (
-    <>
-      <ReactJson className={styles.response} crossorigin src={response} />
-    </>
+    <div data-testid="response-viewer" className={styles.Response}>
+      <ReactJson crossorigin src={response} />
+    </div>
   );
 };
 
 Response.propTypes = {
-  response: PropTypes.arrayOf(
-    PropTypes.shape({
-      body: PropTypes.string,
-      id: PropTypes.number,
-      title: PropTypes.string,
-      userId: PropTypes.number,
-    })
-  ),
+  response: PropTypes.any,
 };
 
 export default Response;
