@@ -1,22 +1,21 @@
 .NavigationBar {
-  display: flex;
-  background-color: cornflowerblue;
-  border: 1px dotted red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-  a {
-    text-decoration: none;
-    color: black;
-  }
+    a {
+        text-decoration: none;
+        color: #c6613e;
+        font-family: system-ui;
+    }
 
-  .navButton {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: white;
-  }
-
-  .navButton::hover {
-    background-color: lightcoral;
-  }
+    .navButton {
+        margin: 5px;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 12px;
+    }
 }
