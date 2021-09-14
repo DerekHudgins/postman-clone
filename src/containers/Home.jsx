@@ -15,10 +15,12 @@ export default class Home extends Component {
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleFetch();
   };
+
   handleFetch = () => {
     const { url, method, JSON } = this.state;
 

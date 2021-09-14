@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextAreaAutosize from 'react-textarea-autosize';
 import styles from './styles/UserInterface.css';
 
 const UserInterface = ({ handleChange, handleSubmit, url, method }) => {
@@ -9,7 +10,6 @@ const UserInterface = ({ handleChange, handleSubmit, url, method }) => {
         <div className={styles.URLInput}>
           <input
             placeholder="URL to query ..."
-            defaultValue="https://jsonplaceholder.typicode.com/posts"
             name="url"
             value={url}
             onChange={handleChange}
@@ -17,40 +17,44 @@ const UserInterface = ({ handleChange, handleSubmit, url, method }) => {
           <button type="submit">Go</button>
         </div>
         <div className={styles.buttonContainer}>
-          <label htmlFor="get">
+          <label htmlFor="GET">
             GET
             <input
               name="method"
+              id="GET"
               value="GET"
               type="radio"
               checked={method === 'GET'}
               onChange={handleChange}
             />
           </label>
-          <label htmlFor="put">
+          <label htmlFor="PUT">
             PUT
             <input
               name="method"
+              id="PUT"
               value="PUT"
               type="radio"
               checked={method === 'PUT'}
               onChange={handleChange}
             />
           </label>
-          <label htmlFor="post">
+          <label htmlFor="POST">
             POST
             <input
               name="method"
+              id="POST"
               value="POST"
               type="radio"
               checked={method === 'POST'}
               onChange={handleChange}
             />
           </label>
-          <label htmlFor="delete">
+          <label htmlFor="DELETE">
             DELETE
             <input
               name="method"
+              id="DELETE"
               value="DELETE"
               type="radio"
               checked={method === 'DELETE'}
@@ -59,22 +63,22 @@ const UserInterface = ({ handleChange, handleSubmit, url, method }) => {
           </label>
         </div>
         <div className={styles.JSONInput}>
-          <textarea
+          <TextAreaAutosize
             className={styles.textArea}
             name="json"
             onChange={handleChange}
-          ></textarea>
+          />
         </div>
       </form>
     </main>
   );
 };
+
 UserInterface.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   url: PropTypes.string,
   method: PropTypes.string,
-  JSON: PropTypes.string,
 };
 
 export default UserInterface;
