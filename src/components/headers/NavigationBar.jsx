@@ -5,8 +5,12 @@ import styles from './styles/NavigationBar.css';
 const NavigationBar = () => {
   return (
     <div className={styles.NavigationBar}>
-      <Link to="/">Home</Link>
-      <Link to="/history">History</Link>
+      <Link to="/">
+        <div className={styles.navButton}>Home</div>
+      </Link>
+      <Link to="/history">
+        <div className={styles.navButton}>History</div>
+      </Link>
     </div>
   );
 };
