@@ -5,30 +5,51 @@ import styles from './styles/UserInterface.css';
 const UserInterface = ({ handleChange }) => {
   return (
     <main className={styles.UserInterface}>
-      <div className={styles.URLInput}>
-        <input />
-        <button>Go</button>
-      </div>
-      <div className={styles.radioButtons}>
-        <form>
+      <form className={styles.formElement}>
+        <div className={styles.URLInput}>
+          <input placeholder="URL to query ..." />
+          <button>Go</button>
+        </div>
+        <div className={styles.buttonContainer}>
           <label htmlFor="get">
             GET
-            <input type="radio" id="get" name="method" />
+            <input
+              type="radio"
+              id="get"
+              name="method"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="put">
             PUT
-            <input type="radio" id="put" name="method" />
+            <input
+              type="radio"
+              id="put"
+              name="method"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="post">
             POST
-            <input type="radio" id="post" name="method" />
+            <input
+              type="radio"
+              id="post"
+              name="method"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="delete">
             DELETE
-            <input type="radio" id="delete" name="method" />
+            <input
+              type="radio"
+              name="method"
+              id="delete"
+              value="delete"
+              onChange={handleChange}
+            />
           </label>
-        </form>
-      </div>
+        </div>
+      </form>
       <div className={styles.JSONInput}>
         <span
           className={styles.textArea}
@@ -37,6 +58,9 @@ const UserInterface = ({ handleChange }) => {
           contentEditable
         ></span>
       </div>
+      <div className={styles.results}>
+        <span>Results</span>
+      </div>
     </main>
   );
 };
@@ -44,5 +68,4 @@ const UserInterface = ({ handleChange }) => {
 UserInterface.propTypes = {
   handleChange: PropTypes.func.isRequired,
 };
-
 export default UserInterface;
