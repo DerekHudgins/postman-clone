@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles/UserInterface.css';
 
-const UserInterface = (props) => {
+const UserInterface = ({ handleChange }) => {
   return (
     <main className={styles.UserInterface}>
       <div className={styles.URLInput}>
@@ -41,6 +41,8 @@ const UserInterface = (props) => {
   );
 };
 
-UserInterface.propTypes = {};
+UserInterface.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default UserInterface;
